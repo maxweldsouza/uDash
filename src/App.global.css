@@ -6,19 +6,15 @@
 
 body {
   position: relative;
-  color: white;
+  color: #fff;
   height: 100vh;
-  background: linear-gradient(
-    200.96deg,
-    #fedc2a -29.09%,
-    #dd5789 51.77%,
-    #7a2c9e 129.35%
-  );
+  background: #333;
   font-family: 'Noto Sans JP', sans-serif;
   overflow-y: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  -webkit-app-region: drag;
 }
 
 #root {

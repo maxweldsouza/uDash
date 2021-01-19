@@ -5,6 +5,14 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import MonitorBrightness from './MonitorBrightness';
+import { Sun } from 'react-feather';
+
+// TODO
+// Wifi
+// Bluetooth
+// System usage
+// Battery
+// Power
 
 
 const Hello = () => {
@@ -12,6 +20,12 @@ const Hello = () => {
     <Container>
       <Grid container spacing={3}>
         <Grid item xs={12}>
+        <h1>
+          Ubuntu Dash
+        </h1>
+        </Grid>
+        <Grid item xs={12}>
+          <Sun />
         <Typography id="continuous-slider" gutterBottom>
           Brightness
         </Typography>
