@@ -25,7 +25,7 @@ function DiskUsage(props: MonitorBrightnessProps) {
             <HardDrive/>
           <div>{disk.name}</div>
             <BorderLinearProgress variant={'determinate'} value={disk.percent} />
-            <Value>{disk.percent}%</Value>
+            <Value>{disk.percent} %</Value>
           </>
       })}
     </>

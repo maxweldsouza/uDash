@@ -18,7 +18,6 @@ function CPUTemp() {
   useInterval(
     () => {
       si.cpuTemperature().then(data => {
-        console.log('data: ', data);
         return setTemp(data.main);
       });
     },

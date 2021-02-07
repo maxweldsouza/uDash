@@ -46,25 +46,11 @@ tmpfs          tmpfs      1%  1.6G /run/user/1000
     const result = parseDiskUsage(output);
     expect(result).toStrictEqual([
       {
-        source: 'udev',
-        fstype: 'devtmpfs',
-        pcent: '0%',
-        size: '7.8G',
-        target: '/dev'
-      },
-      {
         source: '/dev/sda2',
         fstype: 'ext4',
         pcent: '95%',
         size: '102G',
         target: '/'
-      },
-      {
-        source: '/dev/sda1',
-        fstype: 'vfat',
-        pcent: '2%',
-        size: '511M',
-        target: '/boot/efi'
       },
       {
         source: '/dev/sdc1',
@@ -89,7 +75,8 @@ tmpfs          tmpfs      1%  1.6G /run/user/1000
         fstype: 'ext4',
         pcent: '91%',
         size: '294G',
-        target: '/media/home/Old Laptop Hdd'
+        target: '/media/home/Old Laptop Hdd',
+        name: '/'
       }
     ];
     expect(humanize(input)).toStrictEqual([

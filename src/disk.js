@@ -4,8 +4,11 @@ const fields = 'source,fstype,pcent,size,target';
 
 export const filterDisks = (disks) => {
   return disks.filter(disk => {
-    return !['tmpfs', 'squashfs'].includes(disk.fstype);
+    return !['tmpfs', 'squashfs', 'devtmpfs'].includes(disk.fstype);
   })
+    .filter(disk => {
+      return !['/boot/efi'].includes(disk.target);
+    })
 
 };
 
@@ -30,12 +33,15 @@ export const parseDiskUsage = (s) => {
 };
 
 export const humanize = (disks) => {
-  console.log('disks: ', disks);
   return disks.map(disk => {
+    let name = disk.target.split('/').slice(-1).join('');
+    if (!name) {
+      name = '/';
+    }
     return {
       ...disk,
       percent: Number(disk.pcent.replace('%','')),
-      name: disk.target.split('/').slice(-1).join('')
+      name: name
     }
   });
 };
