@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import CustomSlider from './CustomSlider';
-const { exec } = require('child_process');
+import { applyBrightness, getBrightness } from './brightness';
 
 type MonitorBrightnessProps = {
-  monitor: string;
 };
 
 function MonitorBrightness(props: MonitorBrightnessProps) {
   const [brightness, setBrightness] = useState(1);
+  const [monitors, setMonitors] = useState<string[]>([]);
+  useEffect(() => {
+    getBrightness().then(brightnessMap => {
+      console.log('brightnessMap: ', brightnessMap);
+      const m = Object.keys(brightnessMap);
+      console.log('m: ', m);
+      // @ts-ignore
+      const brightness =  m.map(monitor => brightnessMap[monitor]);
+      const maxB = Math.max(...brightness);
+      setMonitors(m);
+      setBrightness(maxB);
+    });
+  }, []);
 
   useEffect(() => {
-    exec(`xrandr --output ${props.monitor} --brightness ${brightness}`, (error, stdout, stderr) => {
-      if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-      }
-      if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-      }
-      console.log(`stdout: ${stdout}`);
-    });
+    applyBrightness(monitors, brightness);
   }, [brightness]);
 
   return (

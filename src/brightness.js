@@ -1,5 +1,6 @@
+import { execCommand } from './util';
 
-export const getMonitors = (xrandrOutput) => {
+export const parseMonitors = (xrandrOutput) => {
   const lines = xrandrOutput.split(/\r?\n/);
   const filtered = lines.filter(x => {
     return x.match(/^(.+) connected/) || x.match(/\sBrightness: ([.0-9]+)/);
@@ -13,4 +14,15 @@ export const getMonitors = (xrandrOutput) => {
     result[name] = brighness;
   }
   return result;
+};
+
+export const getBrightness = async () => {
+  const output = await execCommand('xrandr --verbose');
+  return parseMonitors(output);
+};
+
+export const applyBrightness = (monitors, brightness) => {
+  if (brightness < 0.3)
+    return;
+  monitors.forEach(monitor => execCommand(`xrandr --output ${monitor} --brightness ${brightness}`));
 };

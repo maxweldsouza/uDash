@@ -1,7 +1,7 @@
-import { getMonitors } from './brightness';
+import { parseMonitors } from './brightness';
 
 describe('brightness', () => {
-  test('getMonitors', () => {
+  test('parseMonitors', () => {
     const stdout = `Screen 0: minimum 8 x 8, current 3120 x 1920, maximum 32767 x 32767
 HDMI1 connected primary 1920x1200+0+505 (0x48) normal (normal left inverted right x axis y axis) 520mm x 320mm
 \tIdentifier: 0x43
@@ -322,7 +322,7 @@ VIRTUAL1 disconnected (normal left inverted right x axis y axis)
 \tnon-desktop: 0 
 \t\tsupported: 0, 1
 `;
-    const actual = getMonitors(stdout);
+    const actual = parseMonitors(stdout);
     expect(actual['HDMI1']).toBe(0.8);
     expect(actual['HDMI2']).toBe(1);
   });

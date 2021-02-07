@@ -75,7 +75,7 @@ const Hello = () => {
         <Typography id="continuous-slider" gutterBottom>
           Brightness
         </Typography>
-        <MonitorBrightness monitor={'HDMI1'}/>
+        <MonitorBrightness />
         <Volume2/>
         Volume
         <CustomSlider value={volume} min={0} max={100} onChange={(e, newValue) => {setVolume(newValue)}}/>
