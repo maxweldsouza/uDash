@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import CustomSlider from './CustomSlider';
 import { applyBrightness, getBrightness } from './brightness';
+import { Sun, Volume2, VolumeX, Bluetooth, Thermometer, HardDrive } from 'react-feather';
+import Typography from '@material-ui/core/Typography';
+import styled from 'styled-components';
 
 type MonitorBrightnessProps = {
 };
+const Value = styled.div`
+  text-align: right;
+`;
 
 function MonitorBrightness(props: MonitorBrightnessProps) {
   const [brightness, setBrightness] = useState(1);
@@ -26,7 +32,14 @@ function MonitorBrightness(props: MonitorBrightnessProps) {
   }, [brightness]);
 
   return (
+    <>
+    <Sun />
+      <Typography id="continuous-slider" gutterBottom>
+    Brightness
+    </Typography>
     <CustomSlider value={brightness} min={0} max={1} step={0.01} onChange={(_e, newValue) => setBrightness(newValue)} aria-labelledby="continuous-slider" />
+      <Value>{brightness * 100} %</Value>
+    </>
   );
 }
 
