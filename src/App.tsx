@@ -27,7 +27,7 @@ const Wrapper = styled.div`
 const Container = styled.div`
   display: grid;
   grid-template-columns: 40px 160px 1fr 60px;
-  grid-template-rows: 45px 45px 45px;
+  grid-template-rows: repeat(auto-fill, 45px);
   align-items: center;
 `;
 
@@ -62,7 +62,7 @@ const Hello = () => {
       <Divider/>
     <Container>
       <CPUTemp/>
-      {/*<DiskUsage/>*/}
+      <DiskUsage/>
     </Container>
     </Wrapper>
   );

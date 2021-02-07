@@ -5,8 +5,7 @@ import { Sun, Volume2, VolumeX, Bluetooth, Thermometer, HardDrive } from 'react-
 import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components';
 import BorderLinearProgress from './BorderLinearProgress';
-import {useInterval} from 'react-use';
-const si = require('systeminformation');
+import { getDisks } from './disk';
 
 type MonitorBrightnessProps = {
 };
@@ -15,12 +14,20 @@ const Value = styled.div`
 `;
 
 function DiskUsage(props: MonitorBrightnessProps) {
+  const [disks, setDisks] = useState<any>([]);
+  useEffect(() => {
+    getDisks().then(d => setDisks(d));
+  }, []);
   return (
     <>
-      <HardDrive/>
-      Disk Usage
-      <BorderLinearProgress variant={'determinate'} value={30} />
-      <div/>
+      {disks.map(disk => {
+        return <>
+            <HardDrive/>
+          <div>{disk.name}</div>
+            <BorderLinearProgress variant={'determinate'} value={disk.percent} />
+            <Value>{disk.percent}%</Value>
+          </>
+      })}
     </>
   );
 }
