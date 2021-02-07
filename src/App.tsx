@@ -20,12 +20,12 @@ import DiskUsage from './DiskUsage';
 // Power
 
 const Wrapper = styled.div`
-  padding: 20px;
+  padding: 40px;
 `;
 const Container = styled.div`
   display: grid;
   grid-template-columns: 40px 160px 1fr 80px;
-  grid-template-rows: repeat(3, 45px);
+  grid-template-rows: repeat(6, 45px);
   align-items: center;
 `;
 
@@ -53,18 +53,12 @@ const Hello = () => {
         Volume
         <CustomSlider value={volume} min={0} max={100} onChange={(e, newValue) => {setVolume(newValue)}}/>
         <div/>
+        <CPUTemp/>
+        <DiskUsage/>
         {/*<Bluetooth/>*/}
         {/*Bluetooth*/}
         {/*<MSwitch />*/}
         {/*<div/>*/}
-      </Container>
-      <Divider/>
-      <Container>
-        <CPUTemp/>
-      </Container>
-      <Divider/>
-      <Container>
-        <DiskUsage/>
       </Container>
     </Wrapper>
   );
