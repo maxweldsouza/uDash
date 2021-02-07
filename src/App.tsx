@@ -53,10 +53,10 @@ const Hello = () => {
         Volume
         <CustomSlider value={volume} min={0} max={100} onChange={(e, newValue) => {setVolume(newValue)}}/>
         <div/>
-        <Bluetooth/>
-        Bluetooth
-        <MSwitch />
-        <div/>
+        {/*<Bluetooth/>*/}
+        {/*Bluetooth*/}
+        {/*<MSwitch />*/}
+        {/*<div/>*/}
       </Container>
       <Divider/>
       <Container>
