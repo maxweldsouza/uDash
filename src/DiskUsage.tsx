@@ -21,12 +21,12 @@ function DiskUsage(props: MonitorBrightnessProps) {
   return (
     <>
       {disks.map(disk => {
-        return <>
-            <HardDrive/>
+        return <React.Fragment key={disk.name}>
+          <HardDrive/>
           <div>{disk.name}</div>
-            <BorderLinearProgress variant={'determinate'} value={disk.percent} />
-            <Value>{disk.percent} %</Value>
-          </>
+          <BorderLinearProgress variant={'determinate'} value={disk.percent} />
+          <Value>{disk.percent} %</Value>
+        </React.Fragment>
       })}
     </>
   );

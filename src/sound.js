@@ -1,4 +1,5 @@
-const { exec } = require('child_process');
+import { execCommand } from './util';
+
 export const parseVolume = (s) => {
   if (!s.startsWith('Simple mixer control'))
       return;
@@ -19,23 +20,15 @@ export const parseVolume = (s) => {
 };
 
 export const getVolume = () => {
-  return new Promise((resolve, reject) => {
-    exec(`amixer -D pulse get Master`, (error, stdout, stderr) => {
-      if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-      }
-      if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-      }
-      const vol = parseVolume(stdout);
-      if (typeof vol !== 'undefined') {
-        resolve(vol);
-      }
+  return execCommand('amixer -D pulse get Master')
+    .then(output => {
+      const vol = parseVolume(output);
+      return vol;
     });
+};
 
-  });
+export const applyVolume = (volume) => {
+  return execCommand(`amixer -q -D pulse sset Master ${volume}%`);
 };
 
 

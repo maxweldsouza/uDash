@@ -3,14 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Grid from '@material-ui/core/Grid';
 import MSwitch from '@material-ui/core/Switch';
-import LinearProgress from '@material-ui/core/LinearProgress';
 import MonitorBrightness from './MonitorBrightness';
-import { Sun, Volume2, VolumeX, Bluetooth, Thermometer, HardDrive } from 'react-feather';
+import { Sun, Volume2, VolumeX, Bluetooth} from 'react-feather';
 import styled from 'styled-components';
 import Divider from '@material-ui/core/Divider';
 import CustomSlider from './CustomSlider';
-import { getVolume } from './sound';
-import BorderLinearProgress from './BorderLinearProgress';
+import { applyVolume, getVolume } from './sound';
 import CPUTemp from './CPUTemp';
 import DiskUsage from './DiskUsage';
 
@@ -41,7 +39,8 @@ const Hello = () => {
 
 
   useEffect(() => {
-  }, []);
+    applyVolume(volume);
+  }, [volume]);
 
   return (
     <Wrapper>
