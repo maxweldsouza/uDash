@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Slider from '@material-ui/core/Slider';
+import CustomSlider from './CustomSlider';
 const { exec } = require('child_process');
 
 type MonitorBrightnessProps = {
@@ -24,7 +24,7 @@ function MonitorBrightness(props: MonitorBrightnessProps) {
   }, [brightness]);
 
   return (
-    <Slider value={brightness} min={0} max={1} step={0.01} onChange={(_e, newValue) => setBrightness(newValue)} aria-labelledby="continuous-slider" />
+    <CustomSlider value={brightness} min={0} max={1} step={0.01} onChange={(_e, newValue) => setBrightness(newValue)} aria-labelledby="continuous-slider" />
   );
 }
 

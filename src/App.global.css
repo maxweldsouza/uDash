@@ -15,6 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   -webkit-app-region: drag;
+  border-radius: 20px;
 }
 
 #root {
