@@ -2,11 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { HardDrive } from 'react-feather';
 import { getDisks } from './disk';
 import { DiskProgressInner, Progress, Value } from './styledComponents';
-import styled from 'styled-components';
 
-type MonitorBrightnessProps = {
-};
-function DiskUsage(props: MonitorBrightnessProps) {
+function DiskUsage() {
   const [disks, setDisks] = useState<any>([]);
   useEffect(() => {
     getDisks().then(d => setDisks(d));

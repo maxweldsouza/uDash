@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import CustomSlider from './CustomSlider';
 import { applyBrightness, getBrightness } from './brightness';
-import { Sun, Volume2, VolumeX, Bluetooth, Thermometer, HardDrive } from 'react-feather';
-import Typography from '@material-ui/core/Typography';
-import styled from 'styled-components';
+import { Sun } from 'react-feather';
 import { Value } from './styledComponents';
 
-type MonitorBrightnessProps = {
-};
-
-function MonitorBrightness(props: MonitorBrightnessProps) {
+function MonitorBrightness() {
   const [brightness, setBrightness] = useState(1);
   const [monitors, setMonitors] = useState<string[]>([]);
   useEffect(() => {

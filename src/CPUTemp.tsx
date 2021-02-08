@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Thermometer } from 'react-feather';
-import styled from 'styled-components';
 import {useInterval} from 'react-use';
 import { Progress, DiskProgressInner, Value } from './styledComponents';
 const si = require('systeminformation');
