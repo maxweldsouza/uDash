@@ -1,17 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import CustomSlider from './CustomSlider';
-import { applyBrightness, getBrightness } from './brightness';
-import { Sun, Volume2, VolumeX, Bluetooth, Thermometer, HardDrive } from 'react-feather';
-import Typography from '@material-ui/core/Typography';
+import React, { useState } from 'react';
+import { Thermometer } from 'react-feather';
 import styled from 'styled-components';
-import BorderLinearProgress from './BorderLinearProgress';
 import {useInterval} from 'react-use';
-import { Progress, ProgressInner } from './styledComponents';
+import { Progress, DiskProgressInner, Value } from './styledComponents';
 const si = require('systeminformation');
-
-const Value = styled.div`
-  text-align: right;
-`;
 
 function CPUTemp() {
   const [temp, setTemp] = useState(0);
@@ -29,9 +21,9 @@ function CPUTemp() {
       <Thermometer />
       CPU Temperature
       <Progress>
-        <ProgressInner percent={temp} />
+        <DiskProgressInner percent={temp} />
       </Progress>
-      <Value>{temp} <sup>o</sup>C</Value>
+      <Value>{Math.floor(temp)} <sup>o</sup>C</Value>
     </>
   );
 }

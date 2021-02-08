@@ -9,7 +9,8 @@ body {
   color: #fff;
   height: 100vh;
   background: #333;
-  font-family: 'Noto Sans JP', sans-serif;
+  /*font-family: 'Noto Sans JP', sans-serif;*/
+  font-family: 'Ubuntu Mono';
   overflow-y: hidden;
   display: flex;
   justify-content: center;

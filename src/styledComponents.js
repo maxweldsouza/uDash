@@ -24,3 +24,8 @@ export const ProgressInner = styled.div`
 export const DiskProgressInner = styled(ProgressInner)`
     background: hsl(${props => 120 - (props.percent * 120 / 100)}, 100%, 66%);
 `;
+
+export const Value = styled.div`
+  text-align: right;
+`;
+

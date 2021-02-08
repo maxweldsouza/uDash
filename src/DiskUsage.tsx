@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import CustomSlider from './CustomSlider';
-import { applyBrightness, getBrightness } from './brightness';
-import { Sun, Volume2, VolumeX, Bluetooth, Thermometer, HardDrive } from 'react-feather';
-import Typography from '@material-ui/core/Typography';
-import BorderLinearProgress from './BorderLinearProgress';
+import { HardDrive } from 'react-feather';
 import { getDisks } from './disk';
-import { DiskProgressInner, Progress } from './styledComponents';
+import { DiskProgressInner, Progress, Value } from './styledComponents';
 import styled from 'styled-components';
 
 type MonitorBrightnessProps = {
 };
-const Value = styled.div`
-  text-align: right;
-`;
-
 function DiskUsage(props: MonitorBrightnessProps) {
   const [disks, setDisks] = useState<any>([]);
   useEffect(() => {
@@ -28,7 +20,7 @@ function DiskUsage(props: MonitorBrightnessProps) {
           <Progress>
             <DiskProgressInner percent={disk.percent} />
           </Progress>
-          <Value>{disk.percent} %</Value>
+          <Value>{Math.floor(disk.percent)} %</Value>
         </React.Fragment>
       })}
     </>
