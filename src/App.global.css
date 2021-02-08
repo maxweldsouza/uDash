@@ -15,7 +15,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  -webkit-app-region: drag;
+  /*-webkit-app-region: drag;*/
   border-radius: 20px;
 }
 
