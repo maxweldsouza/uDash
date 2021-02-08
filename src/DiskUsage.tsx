@@ -6,19 +6,21 @@ import { DiskProgressInner, Progress, Value } from './styledComponents';
 function DiskUsage() {
   const [disks, setDisks] = useState<any>([]);
   useEffect(() => {
-    getDisks().then(d => setDisks(d));
+    getDisks().then((d) => setDisks(d));
   }, []);
   return (
     <>
-      {disks.map(disk => {
-        return <React.Fragment key={disk.name}>
-          <HardDrive/>
-          <div>{disk.name}</div>
-          <Progress>
-            <DiskProgressInner percent={disk.percent} />
-          </Progress>
-          <Value>{Math.floor(disk.percent)} %</Value>
-        </React.Fragment>
+      {disks.map((disk) => {
+        return (
+          <React.Fragment key={disk.name}>
+            <HardDrive />
+            <div>{disk.name}</div>
+            <Progress>
+              <DiskProgressInner percent={disk.percent} />
+            </Progress>
+            <Value>{Math.floor(disk.percent)} %</Value>
+          </React.Fragment>
+        );
       })}
     </>
   );

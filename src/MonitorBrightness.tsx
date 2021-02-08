@@ -8,9 +8,9 @@ function MonitorBrightness() {
   const [brightness, setBrightness] = useState(1);
   const [monitors, setMonitors] = useState<string[]>([]);
   useEffect(() => {
-    getBrightness().then(brightnessMap => {
+    getBrightness().then((brightnessMap) => {
       const m = Object.keys(brightnessMap);
-      const brightness =  m.map(monitor => brightnessMap[monitor]);
+      const brightness = m.map((monitor) => brightnessMap[monitor]);
       const maxB = Math.max(...brightness);
       setMonitors(m);
       setBrightness(maxB);
@@ -23,9 +23,16 @@ function MonitorBrightness() {
 
   return (
     <>
-    <Sun />
+      <Sun />
       Brightness
-    <CustomSlider value={brightness} min={0} max={1} step={0.01} onChange={(_e, newValue) => setBrightness(newValue)} aria-labelledby="continuous-slider" />
+      <CustomSlider
+        value={brightness}
+        min={0}
+        max={1}
+        step={0.01}
+        onChange={(_e, newValue) => setBrightness(newValue)}
+        aria-labelledby="continuous-slider"
+      />
       <Value>{Math.floor(brightness * 100)} %</Value>
     </>
   );
