@@ -9,6 +9,20 @@ import DiskUsage from './DiskUsage';
 import Volume from './Volume';
 import Wifi from './Wifi';
 import { Grid, SectionTitle } from './styledComponents';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiSelect: {
+      root: {
+      },
+      select: {
+        'border-bottom': 'solid 2px #bea9fc'
+      },
+    },
+  }
+
+});
 
 // TODO
 // Wifi
@@ -23,6 +37,7 @@ const Wrapper = styled.div`
 `;
 const Hello = () => {
   return (
+    <ThemeProvider theme={theme}>
     <Wrapper>
       <h1>uDash</h1>
       <SectionTitle>Controls</SectionTitle>
@@ -42,6 +57,7 @@ const Hello = () => {
       <SectionTitle>Disk Usage</SectionTitle>
       <DiskUsage />
     </Wrapper>
+    </ThemeProvider>
   );
 };
 

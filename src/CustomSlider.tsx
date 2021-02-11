@@ -7,7 +7,7 @@ const iOSBoxShadow =
 
 const CustomSlider = withStyles({
   root: {
-    color: '#3880ff',
+    color: '#bea9fc',
     height: 2,
     padding: '15px 0',
     '-webkit-app-region': 'no-drag',
