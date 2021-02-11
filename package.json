@@ -27,8 +27,8 @@
     ]
   },
   "build": {
-    "productName": "Ubuntu Dash",
-    "appId": "org.erb.ElectronReact",
+    "productName": "UDash",
+    "appId": "com.electron.UDash",
     "files": [
       "dist/",
       "node_modules/",

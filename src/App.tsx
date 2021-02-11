@@ -8,6 +8,7 @@ import CPUTemp from './CPUTemp';
 import DiskUsage from './DiskUsage';
 import Volume from './Volume';
 import Wifi from './Wifi';
+import { Grid } from './styledComponents';
 
 // TODO
 // Wifi
@@ -20,28 +21,33 @@ const Wrapper = styled.div`
   margin: 40px;
   -webkit-app-region: no-drag;
 `;
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 40px 160px 1fr 80px;
-  grid-template-rows: repeat(8, 50px);
-  align-items: center;
-`;
-
 const Hello = () => {
   return (
     <Wrapper>
-      <h1>Ubuntu Dash</h1>
-      <Container>
+      <h1>Ubuntu Dashboard</h1>
+      <Grid rows={4}>
+        Controls
+        <div/>
+        <div/>
+        <div/>
         <Wifi/>
         <Volume />
         <MonitorBrightness />
-        <CPUTemp />
-        <DiskUsage />
         {/*<Bluetooth/>*/}
         {/*Bluetooth*/}
         {/*<MSwitch />*/}
         {/*<div/>*/}
-      </Container>
+      </Grid>
+      <Divider/>
+      <Grid rows={2}>
+        Temperature
+        <div/>
+        <div/>
+        <div/>
+        <CPUTemp />
+      </Grid>
+      <Divider/>
+      <DiskUsage />
     </Wrapper>
   );
 };
