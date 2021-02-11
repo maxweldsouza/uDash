@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 const Hello = () => {
   return (
     <Wrapper>
-      <h1>Ubuntu Dashboard</h1>
+      <h1>uDash</h1>
       <Grid rows={4}>
         Controls
         <div/>
