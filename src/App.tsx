@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import MonitorBrightness from './MonitorBrightness';
@@ -17,12 +17,13 @@ import Wifi from './Wifi';
 // Power
 
 const Wrapper = styled.div`
-  padding: 40px;
+  margin: 40px;
+  -webkit-app-region: no-drag;
 `;
 const Container = styled.div`
   display: grid;
   grid-template-columns: 40px 160px 1fr 80px;
-  grid-template-rows: repeat(7, 50px);
+  grid-template-rows: repeat(8, 50px);
   align-items: center;
 `;
 

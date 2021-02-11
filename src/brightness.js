@@ -1,4 +1,5 @@
 import { execCommand } from './util';
+import debounce from 'lodash/debounce';
 
 export const parseMonitors = (xrandrOutput) => {
   const lines = xrandrOutput.split(/\r?\n/);
@@ -21,8 +22,11 @@ export const getBrightness = async () => {
   return parseMonitors(output);
 };
 
-export const applyBrightness = (monitors, brightness) => {
+export const rawApplyBrightness = (monitors, brightness) => {
   if (brightness < 0.3)
     return;
   monitors.forEach(monitor => execCommand(`xrandr --output ${monitor} --brightness ${brightness}`));
 };
+
+export const applyBrightness = debounce(rawApplyBrightness, 250);
+

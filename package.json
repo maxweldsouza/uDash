@@ -27,7 +27,7 @@
     ]
   },
   "build": {
-    "productName": "ElectronReact",
+    "productName": "Ubuntu Dash",
     "appId": "org.erb.ElectronReact",
     "files": [
       "dist/",
@@ -199,7 +199,7 @@
     "css-minimizer-webpack-plugin": "^1.1.5",
     "detect-port": "^1.3.0",
     "electron": "^11.0.1",
-    "electron-builder": "^22.3.6",
+    "electron-builder": "^22.9.1",
     "electron-devtools-installer": "^3.1.1",
     "electron-notarize": "^1.0.0",
     "electron-rebuild": "^2.3.2",
@@ -246,10 +246,12 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.2",
+    "chroma-js": "^2.1.0",
     "electron-debug": "^3.1.0",
     "electron-log": "^4.2.4",
     "electron-updater": "^4.3.4",
     "history": "^5.0.0",
+    "lodash": "^4.17.20",
     "loudness": "^0.4.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

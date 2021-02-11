@@ -1,4 +1,5 @@
 import { execCommand } from './util';
+import debounce from 'lodash/debounce';
 
 export const parseVolume = (s) => {
   if (!s.startsWith('Simple mixer control'))
@@ -27,8 +28,9 @@ export const getVolume = () => {
     });
 };
 
-export const applyVolume = (volume) => {
+export const rawApplyVolume = (volume) => {
   return execCommand(`amixer -q -D pulse sset Master ${volume}%`);
 };
 
+export const applyVolume = debounce(rawApplyVolume, 100);
 

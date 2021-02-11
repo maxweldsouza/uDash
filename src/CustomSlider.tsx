@@ -1,5 +1,6 @@
 import Slider from '@material-ui/core/Slider';
 import withStyles from '@material-ui/core/styles/withStyles';
+import React from 'react';
 
 const iOSBoxShadow =
   '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
@@ -55,4 +56,5 @@ const CustomSlider = withStyles({
   },
 })(Slider);
 
+// export default BasicSlider;
 export default CustomSlider;

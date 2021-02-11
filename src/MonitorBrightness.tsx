@@ -3,7 +3,6 @@ import CustomSlider from './CustomSlider';
 import { applyBrightness, getBrightness } from './brightness';
 import { Sun } from 'react-feather';
 import { Value } from './styledComponents';
-
 function MonitorBrightness() {
   const [brightness, setBrightness] = useState(1);
   const [monitors, setMonitors] = useState<string[]>([]);
