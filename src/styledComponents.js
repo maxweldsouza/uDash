@@ -33,7 +33,7 @@ export const Value = styled.div`
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: 40px 160px 1fr 80px;
-  grid-template-rows: repeat(${(props) => props.rows}, 50px);
+  grid-template-rows: repeat(${(props) => props.rows}, 60px);
   grid-row-gap: 0;
   grid-column-gap: 0;
   align-items: center;

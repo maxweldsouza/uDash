@@ -12,16 +12,12 @@ import { Grid, SectionTitle } from './styledComponents';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 const theme = createMuiTheme({
-  overrides: {
-    MuiSelect: {
-      root: {
-      },
-      select: {
-        'border-bottom': 'solid 2px #bea9fc'
-      },
-    },
+  palette: {
+    type: 'dark',
+    primary: {
+      main: '#bea9fc'
+    }
   }
-
 });
 
 // TODO

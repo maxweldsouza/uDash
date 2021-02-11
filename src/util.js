@@ -2,7 +2,7 @@ const { exec } = require('child_process');
 
 export const execCommand = (command) => {
   return new Promise((resolve, reject) => {
-    exec(command, (error, stdout, stderr) => {
+    exec(command, { encoding: 'utf8' }, (error, stdout, stderr) => {
       if (error) {
         console.log(`error: ${error.message}`);
         return reject(error.message);
@@ -28,7 +28,7 @@ export const tempHue = (temp) => {
     return YELLOW;
   }
   return GREEN;
-}
+};
 
 export const diskHue = (usage) => {
   if (usage > 90) {
@@ -37,4 +37,4 @@ export const diskHue = (usage) => {
     return YELLOW;
   }
   return GREEN;
-}
+};
