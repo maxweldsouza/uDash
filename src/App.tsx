@@ -39,13 +39,7 @@ const Hello = () => {
         {/*<div/>*/}
       </Grid>
       <Divider/>
-      <Grid rows={2}>
-        Temperature
-        <div/>
-        <div/>
-        <div/>
-        <CPUTemp />
-      </Grid>
+      <CPUTemp />
       <Divider/>
       <DiskUsage />
     </Wrapper>

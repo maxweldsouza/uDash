@@ -20,7 +20,7 @@ function DiskUsage() {
         <div/>
         <div/>
         <div/>
-        {disks.map((disk) => {
+        {disks.map((disk: { name: string; percent: number; }) => {
           return (
             <React.Fragment key={disk.name}>
               <HardDrive />
