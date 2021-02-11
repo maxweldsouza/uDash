@@ -15,3 +15,26 @@ export const execCommand = (command) => {
     });
   });
 };
+
+// hues
+const RED = 0;
+const YELLOW = 60;
+const GREEN = 120;
+
+export const tempHue = (temp) => {
+  if (temp > 80) {
+    return RED;
+  } else if (temp > 60) {
+    return YELLOW;
+  }
+  return GREEN;
+}
+
+export const diskHue = (usage) => {
+  if (usage > 90) {
+    return RED;
+  } else if (usage > 70) {
+    return YELLOW;
+  }
+  return GREEN;
+}

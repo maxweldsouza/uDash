@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { diskHue, tempHue } from './util';
 
 export const Progress = styled.div`
     width: 100%;
@@ -22,7 +23,7 @@ export const ProgressInner = styled.div`
 `;
 
 export const DiskProgressInner = styled(ProgressInner)`
-    background: hsl(${props => 120 - (props.percent * 120 / 100)}, 100%, 66%);
+    background: hsl(${props => diskHue(props.percent)}, 100%, 66%);
 `;
 
 export const Value = styled.div`
@@ -38,3 +39,9 @@ export const Grid = styled.div`
   align-items: center;
 `;
 
+export const SectionTitle = styled.div`
+  height: 50px;
+  line-height: 50px;
+  vertical-align: middle;
+  white-space: nowrap;
+`;

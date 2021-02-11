@@ -14,11 +14,7 @@ function CPUTemp() {
   }, 1000);
   return (
     <>
-      <Grid rows={2}>
-        Temperature
-        <div/>
-        <div/>
-        <div/>
+      <Grid rows={1}>
         <Thermometer />
         CPU Temperature
         <Progress>

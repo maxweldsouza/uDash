@@ -15,11 +15,7 @@ function DiskUsage() {
     getDisks().then((d) => setDisks(d));
   }, 5000);
   return (
-      <Grid rows={disks.length + 1}>
-        Disk Usage
-        <div/>
-        <div/>
-        <div/>
+      <Grid rows={disks.length}>
         {disks.map((disk: { name: string; percent: number; }) => {
           return (
             <React.Fragment key={disk.name}>

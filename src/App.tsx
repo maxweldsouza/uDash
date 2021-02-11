@@ -8,7 +8,7 @@ import CPUTemp from './CPUTemp';
 import DiskUsage from './DiskUsage';
 import Volume from './Volume';
 import Wifi from './Wifi';
-import { Grid } from './styledComponents';
+import { Grid, SectionTitle } from './styledComponents';
 
 // TODO
 // Wifi
@@ -25,11 +25,8 @@ const Hello = () => {
   return (
     <Wrapper>
       <h1>uDash</h1>
-      <Grid rows={4}>
-        Controls
-        <div/>
-        <div/>
-        <div/>
+      <SectionTitle>Controls</SectionTitle>
+      <Grid rows={3}>
         <Wifi/>
         <Volume />
         <MonitorBrightness />
@@ -39,8 +36,10 @@ const Hello = () => {
         {/*<div/>*/}
       </Grid>
       <Divider/>
+      <SectionTitle>Temperature</SectionTitle>
       <CPUTemp />
       <Divider/>
+      <SectionTitle>Disk Usage</SectionTitle>
       <DiskUsage />
     </Wrapper>
   );
