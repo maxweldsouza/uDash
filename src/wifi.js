@@ -1,7 +1,6 @@
 import { execCommand } from './util';
 
 const fields = 'name,type,timestamp,active,device,state';
-;
 
 export const unique = (networks) => {
   const seen = {};
@@ -36,7 +35,7 @@ export const filterWifi = (conns) => {
 
 export const getWifi = async () => {
   const output = await execCommand(`nmcli -t -f ${fields} c`);
-  return filterWifi(parseOutput(output));
+  return filterWifi(unique(parseOutput(output)));
 };
 
 export const applyWifi = async (name) => {
