@@ -71,10 +71,11 @@ const createWindow = async () => {
     resizable: false,
     show: false,
     width: 720,
-    height: 840,
+    height: 702,
     icon: getAssetPath('icon.png'),
     frame: false,
     webPreferences: {
+      enableRemoteModule: true,
       nodeIntegration: true,
     },
   });

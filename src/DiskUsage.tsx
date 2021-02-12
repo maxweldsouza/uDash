@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { HardDrive } from 'react-feather';
 import { getDisks } from './disk';
-import { DiskProgressInner, Grid, Progress, Value } from './styledComponents';
+import { DiskProgressInner, Grid, Progress, Scroll, Value } from './styledComponents';
 import { useInterval } from 'react-use';
 
 function DiskUsage() {
@@ -15,6 +15,7 @@ function DiskUsage() {
     getDisks().then((d) => setDisks(d));
   }, 5000);
   return (
+    <Scroll count={3}>
       <Grid rows={disks.length}>
         {disks.map((disk: { name: string; percent: number; }) => {
           return (
@@ -29,6 +30,7 @@ function DiskUsage() {
           );
         })}
       </Grid>
+    </Scroll>
   );
 }
 
