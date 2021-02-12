@@ -30,9 +30,13 @@ export const parseOutput = (output) => {
   return unique(result);
 };
 
+export const filterWifi = (conns) => {
+  return conns.filter(x => x.type !== 'bridge');
+}
+
 export const getWifi = async () => {
   const output = await execCommand(`nmcli -t -f ${fields} c`);
-  return parseOutput(output).filter(x => x.type !== 'bridge');
+  return filterWifi(parseOutput(output));
 };
 
 export const applyWifi = async (name) => {

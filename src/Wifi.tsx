@@ -17,8 +17,9 @@ function WifiSelect() {
 
   useEffect(() => {
     getWifi().then((w) => {
-      console.log('w: ', w);
       setWifiNetworks(w);
+      const selected = w.filter((wifi: { [x: string]: string; }) => wifi?.['active'] === '*')?.[0];
+      setValue(selected);
     });
   }, []);
 
@@ -28,7 +29,6 @@ function WifiSelect() {
       label: wifi.name,
     };
   });
-  // const selected = wifiNetworks.filter(wifi => wifi?.['in-use'] === '*')?.[0];
 
   return (
     <>

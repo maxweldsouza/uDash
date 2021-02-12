@@ -1,13 +1,14 @@
 const { exec } = require('child_process');
+const {decode} = require('iconv-lite');
 
 export const execCommand = (command) => {
   return new Promise((resolve, reject) => {
-    exec(command, { encoding: 'utf8' }, (error, stdout, stderr) => {
+    exec(command, { encoding: 'ascii' }, (error, stdout, stderr) => {
       if (error) {
         console.log(`error: ${error.message}`);
         return reject(error.message);
       }
-      if (stderr) {
+      if (stderr.length > 0) {
         console.log(`stderr: ${stderr}`);
         return reject(stderr);
       }
