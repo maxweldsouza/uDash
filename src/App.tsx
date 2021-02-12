@@ -1,5 +1,6 @@
-import React, { useRef } from 'react';
+import React, { } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+const electron = require('electron');
 
 import MonitorBrightness from './MonitorBrightness';
 import styled from 'styled-components';
@@ -19,6 +20,9 @@ const theme = createMuiTheme({
     primary: {
       main: '#bea9fc'
     }
+  },
+  typography: {
+    fontFamily: "'Ubuntu', sans-serif"
   }
 });
 
@@ -37,7 +41,7 @@ const Header = styled.div`
   background: #3e3e3e;
   padding: 30px;
   display: grid;
-  grid-template-columns: 1fr 32px 32px;
+  grid-template-columns: 1fr 32px;
   align-items: center;
   grid-gap: 8px;
   -webkit-app-region: drag;
@@ -48,8 +52,8 @@ const Hello = () => {
     <ThemeProvider theme={theme}>
       <Header>
         <h1>uDash</h1>
-        <RoundButton color="#fff" background="#555"><Minus size={16}/></RoundButton>
-        <RoundButton color="#fff" background="#555"><X size={16}/></RoundButton>
+        {/*<RoundButton color="#fff" background="#555" onClick={() => window.mainWindow?.minimize()}><Minus size={16}/></RoundButton>*/}
+        <RoundButton color="#fff" background="#555" onClick={() => window.close()}><X size={16}/></RoundButton>
       </Header>
     <Wrapper>
       <SectionTitle>Controls</SectionTitle>
