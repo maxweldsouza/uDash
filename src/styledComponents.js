@@ -64,7 +64,9 @@ export const RoundButton = styled.button`
     opacity: 0.5;
   }
   &:focus {
-    outline: dashed 2px ${(props) => props.color};
+    color: ${(props) => props.background};
+    background: ${(props) => props.color};
+    outline: none;
   }
   &:active {
   }
@@ -75,7 +77,7 @@ export const RoundButton = styled.button`
 
 export const Scroll = styled.div`
   height: ${props => props.count * 60}px;
-  background: #444;
+  background: #383838;
   padding: 0 30px;
   border-radius: 10px;
   overflow: auto;
