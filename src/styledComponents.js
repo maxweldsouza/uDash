@@ -45,3 +45,30 @@ export const SectionTitle = styled.div`
   vertical-align: middle;
   white-space: nowrap;
 `;
+
+
+export const RoundButton = styled.button`
+    border-radius: 999em;
+    border: none;
+    box-shadow: none;
+    background: ${props => props.background};
+    color:  ${props => props.color};
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    text-align: center;
+    vertical-align: middle;
+    margin:0;
+    padding:0;
+    -webkit-app-region: no-drag;
+    &:hover {
+      opacity: 0.5;
+    }
+    &:focus {
+        outline: dashed 2px ${props => props.color};
+    }
+    &:active {
+    }
+    &:disabled {
+      opacity: 0.5;
+    }`
