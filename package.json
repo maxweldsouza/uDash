@@ -1,7 +1,7 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Fast Refresh for rapid application development",
+  "name": "udash",
+  "productName": "uDash",
+  "description": "A program to control a few basic regularly accessed settings on Ubuntu.",
   "scripts": {
     "build": "concurrently \"yarn build:main\" \"yarn build:renderer\"",
     "build:main": "cross-env NODE_ENV=production webpack --config ./.erb/configs/webpack.config.main.prod.babel.js",
@@ -83,23 +83,18 @@
     ],
     "publish": {
       "provider": "github",
-      "owner": "electron-react-boilerplate",
-      "repo": "electron-react-boilerplate"
+      "owner": "uDash",
+      "repo": "uDash"
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron-react-boilerplate/electron-react-boilerplate.git"
-  },
-  "author": {
-    "name": "Electron React Boilerplate Maintainers",
-    "email": "electronreactboilerplate@gmail.com",
-    "url": "https://electron-react-boilerplate.js.org"
+    "url": "git+https://github.com/maxweldsouza/udash.git"
   },
   "contributors": [],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues"
+    "url": "https://github.com/maxweldsouza/udash/issues"
   },
   "keywords": [
     "electron",
@@ -112,7 +107,7 @@
     "hot",
     "reload"
   ],
-  "homepage": "https://github.com/electron-react-boilerplate/electron-react-boilerplate#readme",
+  "homepage": "https://github.com/maxweldsouza/udash#readme",
   "jest": {
     "testURL": "http://localhost/",
     "moduleNameMapper": {
@@ -257,9 +252,6 @@
     "node": ">=10.x",
     "npm": ">=6.x",
     "yarn": ">=1.21.3"
-  },
-  "collective": {
-    "url": "https://opencollective.com/electron-react-boilerplate-594"
   },
   "browserslist": [],
   "prettier": {
