@@ -6,12 +6,19 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 // import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
+import usePageVisibility from 'use-page-visibility';
 
 function WifiSelect() {
   const [wifiNetworks, setWifiNetworks] = useState([]);
   const [value, setValue] = useState<string>('');
+  const [visible, setVisible] = useState(true);
+
+  usePageVisibility((v: boolean) => {
+    setVisible(v);
+  });
 
   useEffect(() => {
+    if (!visible) return;
     getWifi().then((w) => {
       setWifiNetworks(w);
       const selected = w.filter((wifi: { [x: string]: string; }) => wifi?.['active'] === 'yes')?.[0];
@@ -35,7 +42,8 @@ function WifiSelect() {
           labelId="demo-simple-select-label"
           value={value}
           onChange={(e) => {
-            const value : string = e.target.value;
+            if (!e.target.value) return;
+            const value = String(e.target.value);
             applyWifi(value).then(() => {
               setValue(value);
             });
@@ -44,7 +52,7 @@ function WifiSelect() {
           label={'Select a wifi connection...'}
         >
           {options.map((option) => {
-            return <MenuItem value={option.value}>{option.label}</MenuItem>;
+            return <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>;
           })}
         </Select>
       </FormControl>

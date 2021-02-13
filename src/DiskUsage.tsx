@@ -3,15 +3,22 @@ import { HardDrive } from 'react-feather';
 import { getDisks } from './disk';
 import { DiskProgressInner, Grid, Progress, Scroll, Value } from './styledComponents';
 import { useInterval } from 'react-use';
+import usePageVisibility from 'use-page-visibility';
 
 function DiskUsage() {
   const [disks, setDisks] = useState<any>([]);
+  const [visible, setVisible] = useState(true);
+
+  usePageVisibility((v: boolean) => {
+    setVisible(v);
+  });
 
   useEffect(() => {
     getDisks().then((d) => setDisks(d));
   }, []);
 
   useInterval(() => {
+    if (!visible) return;
     getDisks().then((d) => setDisks(d));
   }, 5000);
   return (

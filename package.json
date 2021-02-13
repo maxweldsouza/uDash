@@ -246,7 +246,8 @@
     "regenerator-runtime": "^0.13.5",
     "source-map-support": "^0.5.19",
     "styled-components": "^5.2.1",
-    "systeminformation": "^4.34.7"
+    "systeminformation": "^4.34.7",
+    "use-page-visibility": "^3.0.2"
   },
   "devEngines": {
     "node": ">=10.x",

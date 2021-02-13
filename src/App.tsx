@@ -34,8 +34,7 @@ const theme = createMuiTheme({
 // Power
 
 const Wrapper = styled.div`
-  margin: 30px;
-  margin-top: 0;
+  margin: 0 30px 30px 30px;
   -webkit-app-region: no-drag;
 `;
 const Header = styled.div`
