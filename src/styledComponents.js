@@ -3,7 +3,7 @@ import { diskHue, tempHue } from './util';
 
 export const Progress = styled.div`
   width: 100%;
-  height: 10px;
+  height: 5px;
   position: relative;
   background: #eee;
   border-radius: 5px;
@@ -11,7 +11,7 @@ export const Progress = styled.div`
 `;
 
 export const ProgressInner = styled.div`
-  height: 10px;
+  height: 5px;
   background: #1c73ff;
   border-radius: 5px;
   position: absolute;
@@ -23,7 +23,7 @@ export const ProgressInner = styled.div`
 `;
 
 export const DiskProgressInner = styled(ProgressInner)`
-  background: hsl(${(props) => diskHue(props.percent)}, 100%, 66%);
+  background: hsl(${(props) => diskHue(props.percent)}, 100%, 55%);
 `;
 
 export const Value = styled.div`
