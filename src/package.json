@@ -8,7 +8,7 @@
   "author": {
     "name": "Maxwel D'souza",
     "email": "udash@maxweldsouza.33mail.com",
-    "url": "https://github.com/maxweldsouza/udash"
+    "url": "https://github.com/maxweldsouza/uDash"
   },
   "scripts": {
     "electron-rebuild": "node -r ../.erb/scripts/BabelRegister.js ../.erb/scripts/ElectronRebuild.js",

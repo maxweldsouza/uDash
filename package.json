@@ -89,12 +89,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maxweldsouza/udash.git"
+    "url": "git+https://github.com/maxweldsouza/uDash.git"
   },
   "contributors": [],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/maxweldsouza/udash/issues"
+    "url": "https://github.com/maxweldsouza/uDash/issues"
   },
   "keywords": [
     "electron",
@@ -107,7 +107,7 @@
     "hot",
     "reload"
   ],
-  "homepage": "https://github.com/maxweldsouza/udash#readme",
+  "homepage": "https://github.com/maxweldsouza/uDash#readme",
   "jest": {
     "testURL": "http://localhost/",
     "moduleNameMapper": {
