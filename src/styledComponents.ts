@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { diskHue, tempHue } from './util';
+import { diskHue, GREEN, tempHue } from './util';
 
 export const Progress = styled.div`
   width: 100%;
@@ -83,3 +83,6 @@ export const Scroll = styled.div`
   overflow: auto;
 `;
 
+export const Check = styled.span`
+  color: hsl(${GREEN}, 100%, 55%);
+`;

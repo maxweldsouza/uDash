@@ -1,14 +1,12 @@
 const { exec } = require('child_process');
 
-export const execCommand = (command) => {
+export const execCommand = (command: string) => {
   return new Promise((resolve, reject) => {
-    exec(command, { encoding: 'utf-8' }, (error, stdout, stderr) => {
+    exec(command, { encoding: 'utf8' }, (error: { message: any; }, stdout: unknown, stderr: string | any[]) => {
       if (error) {
-        console.log(`error: ${error.message}`);
         return reject(error.message);
       }
       if (stderr.length > 0) {
-        console.log(`stderr: ${stderr}`);
         return reject(stderr);
       }
       resolve(stdout);
@@ -17,11 +15,11 @@ export const execCommand = (command) => {
 };
 
 // hues
-const RED = 0;
-const YELLOW = 60;
-const GREEN = 120;
+export const RED = 0;
+export const YELLOW = 60;
+export const GREEN = 120;
 
-export const tempHue = (temp) => {
+export const tempHue = (temp: number) => {
   if (temp > 80) {
     return RED;
   } else if (temp > 60) {
@@ -30,7 +28,7 @@ export const tempHue = (temp) => {
   return GREEN;
 };
 
-export const diskHue = (usage) => {
+export const diskHue = (usage: number) => {
   if (usage > 90) {
     return RED;
   } else if (usage > 70) {
