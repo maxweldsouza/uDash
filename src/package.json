@@ -1,7 +1,7 @@
 {
   "name": "uDash",
   "productName": "uDash",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "synopsis": "Quick access to commonly used Ubuntu controls.",
   "description": "uDash lets you quickly change volume, brightness and the wifi network on Ubuntu. It also gives you an overview of disk usage and cpu temperature.",
   "main": "./main.prod.js",
