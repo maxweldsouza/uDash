@@ -8,6 +8,16 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import usePageVisibility from 'use-page-visibility';
 
+export interface wifiT {
+  name: string;
+  type: string;
+  timestamp: string;
+  active: string;
+  device: string;
+  state: string;
+  uuid: string;
+}
+
 function WifiSelect() {
   const [wifiNetworks, setWifiNetworks] = useState([]);
   const [value, setValue] = useState<string>('');
@@ -21,15 +31,17 @@ function WifiSelect() {
     if (!visible) return;
     getWifi().then((w) => {
       setWifiNetworks(w);
-      const selected = w.filter((wifi: { [x: string]: string; }) => wifi?.['active'] === 'yes')?.[0];
-      setValue(selected.name);
+      const selected = w.filter(
+        (wifi: wifiT) => wifi?.['active'] === 'yes'
+      )?.[0];
+      setValue(selected.uuid);
     });
   }, []);
 
-  const options = wifiNetworks.map((wifi) => {
+  const options = wifiNetworks.map((wifi: wifiT) => {
     return {
-      value: wifi.name,
-      label: wifi.name,
+      value: wifi.uuid,
+      label: wifi.name + (wifi.active === 'yes' ? ' (connected)' : ''),
     };
   });
 
@@ -52,7 +64,11 @@ function WifiSelect() {
           label={'Select a wifi connection...'}
         >
           {options.map((option) => {
-            return <MenuItem key={option.value} value={option.value}>{option.label}</MenuItem>;
+            return (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            );
           })}
         </Select>
       </FormControl>

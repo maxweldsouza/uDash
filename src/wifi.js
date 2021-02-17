@@ -1,14 +1,14 @@
 import { execCommand } from './util';
 
-const fields = 'name,type,timestamp,active,device,state';
+const fields = 'name,type,timestamp,active,device,state,uuid';
 
 export const unique = (networks) => {
   const seen = {};
   let result = [];
   for (let wifi of networks) {
-    if (wifi.name && !seen[wifi.name]) {
+    if (wifi.uuid && !seen[wifi.uuid]) {
       result.push(wifi);
-      seen[wifi.name] = true;
+      seen[wifi.uuid] = true;
     }
   }
   return result;
@@ -35,9 +35,11 @@ export const filterWifi = (conns) => {
 
 export const getWifi = async () => {
   const output = await execCommand(`nmcli -t -f ${fields} c`);
+  console.log('output: ', output.toString());
   return filterWifi(unique(parseOutput(output)));
 };
 
 export const applyWifi = async (name) => {
   await execCommand(`nmcli c up "${name}"`);
 };
+

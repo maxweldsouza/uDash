@@ -235,7 +235,6 @@
     "electron-log": "^4.2.4",
     "electron-updater": "^4.3.4",
     "history": "^5.0.0",
-    "iconv-lite": "^0.6.2",
     "lodash": "^4.17.20",
     "loudness": "^0.4.1",
     "react": "^17.0.1",
