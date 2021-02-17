@@ -5,7 +5,7 @@ temperature.
 
 ![uDash screenshot](screenshot.png?raw=true 'uDash Screenshot')
 
-Download: [uDash_1.0.0_amd64.deb](releases/uDash_1.0.0_amd64.deb)
+Download: [uDash_1.0.1_amd64.deb](releases/uDash_1.0.1_amd64.deb)
 
 License: MIT
 
